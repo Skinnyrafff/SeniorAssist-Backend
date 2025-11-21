@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+streamlit
+requests
+openai
+python-dotenv
+transformers
+spacy
+pyttsx3
