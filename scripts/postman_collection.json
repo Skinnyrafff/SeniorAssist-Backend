@@ -1,0 +1,165 @@
+{
+  "info": {
+    "name": "Senior Assist Backend",
+    "_postman_id": "11111111-1111-1111-1111-111111111111",
+    "description": "Colección para probar el backend (FastAPI) de Senior Assist.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Chat - Recordatorio",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"recuerda pagar la luz mañana 9am\",\n  \"device_id\": \"{{device_id}}\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/chat",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "chat"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Chat - Emergencia",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"me caí y sangro, es emergencia\",\n  \"device_id\": \"{{device_id}}\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/chat",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "chat"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Reminders - Listar",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/reminders?device_id={{device_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "reminders"
+          ],
+          "query": [
+            {
+              "key": "device_id",
+              "value": "{{device_id}}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Emergencies - Listar",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/emergencies?device_id={{device_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "emergencies"
+          ],
+          "query": [
+            {
+              "key": "device_id",
+              "value": "{{device_id}}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "History - Listar",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/history?device_id={{device_id}}&limit=10",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "history"
+          ],
+          "query": [
+            {
+              "key": "device_id",
+              "value": "{{device_id}}"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Reminder - Crear manual",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"device_id\": \"{{device_id}}\",\n  \"title\": \"tomar medicina\",\n  \"due_at\": \"2025-11-21T15:30:00\",\n  \"status\": \"draft\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/reminders",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "reminders"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "device_id",
+      "value": "dev1"
+    }
+  ]
+}

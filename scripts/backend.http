@@ -1,0 +1,26 @@
+### Chat - Recordatorio
+POST http://localhost:8000/chat
+Content-Type: application/json
+
+{
+  "text": "recuerda pagar la luz mañana 9am",
+  "device_id": "dev1"
+}
+
+### Chat - Emergencia
+POST http://localhost:8000/chat
+Content-Type: application/json
+
+{
+  "text": "me caí y sangro, es emergencia",
+  "device_id": "dev1"
+}
+
+### Reminders - Listar
+GET http://localhost:8000/reminders?device_id=dev1
+
+### Emergencies - Listar
+GET http://localhost:8000/emergencies?device_id=dev1
+
+### History - Listar
+GET http://localhost:8000/history?device_id=dev1&limit=10
